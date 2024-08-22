@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<HTML LANG="FR">
+	<HEAD>
+		<META CHARSET="UTF-8">
+		<TITLE>IP CLASS CHECKER</TITLE>
+<STYLE>
+	BODY {
+		BACKGROUND-COLOR: #F6EBBD;
+        FONT-FAMILY: Arial, sans-serif;
+        MARGIN: 0;
+        PADDING: 0;
+	}
+  
+
+	HEADER {
+      BACKGROUND-COLOR: #512125;
+      COLOR: WHITE;
+      FONT-SIZE: 2rem;
+      TEXT-ALIGN: CENTER;
+      PADDING: 20px;
+	}
+
+	FORM {
+      BACKGROUND-COLOR: WHITE;
+      BORDER-RADIUS: 20px;
+      PADDING: 20px;
+      MAX-WIDTH: 600px;
+      MARGIN: 20px AUTO;
+      BOX-SHADOW: 0 0 10px RGBA(0,0,0,0.1);
+	}
+
+	INPUT[TYPE="TEXT"] {
+      WIDTH: 75%;
+      PADDING: 10px;
+      BORDER: 1px SOLID #9D3233;
+      BORDER-RADIUS: 5px;
+      MARGIN-BOTTOM: 20px;
+	}
+
+	BUTTON {
+      BACKGROUND-COLOR: #D75A4D;
+      COLOR: WHITE;
+      BORDER: NONE;
+      PADDING: 10px;
+      BORDER-RADIUS: 5px;
+      CURSOR: POINTER;
+      MARGIN-TOP: 50px;
+	}
+
+</STYLE>
+
+  </HEAD>
+
+  <BODY>
+      <HEADER>
+          Check your IP adress
+      </HEADER>
+
+      <FORM ACTION="/cgi-bin/ipchecker.cgi" METHOD="GET">
+          <P>Entrer l'adresse IP: </P>
+          <INPUT TYPE="TEXT" NAME="ip" REQUIRED PLACEHOLDER="Exemple: 192.168.43.0">
+          <BR><BUTTON TYPE="SUBMIT">Envoyer</BUTTON>
+      </FORM>
+  </BODY>
+</HTML>
+
+
