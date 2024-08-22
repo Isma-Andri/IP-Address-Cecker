@@ -2,7 +2,7 @@
 
 `IP Checker` :script CGI écrit en C qui permet de vérifier la validité d'une adresse IPv4 et de déterminer sa classe (A, B, C, D ou E). Deux fichiers sont fournis : `ipchecker.c` pour le script CGI et `ipchecker.html` pour la page HTML.
 
-## Compilation
+## Configuration
 
 Pour compiler et exécuter ce script CGI, mila:
 
