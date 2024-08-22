@@ -4,11 +4,11 @@
 
 ## Configuration
 
-Pour compiler et exécuter ce script CGI, mila:
+Pour compiler et exécuter ce script CGI, on a besoin :
 
-- Un serveur web compatible avec CGI (comme Apache).
-- Un compilateur C (comme `gcc`).
-- L'accès au répertoire CGI de votre serveur web (`/usr/lib/cgi-bin/` ou similaire).
+- D'un serveur web compatible avec CGI (comme Apache).
+- D'un compilateur C (comme `gcc`).
+- De l'accès au répertoire CGI de votre serveur web (`/usr/lib/cgi-bin/` ou similaire).
 
 ## Compilation
 
