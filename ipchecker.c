@@ -25,6 +25,7 @@ void html_title() {
 }
 
 void html_html_footer() {
+    printf("<A href=\"http://localhost/ipchecker.html\">Retour</A><BR>");
     printf("</BODY></HTML>");
 }
 
