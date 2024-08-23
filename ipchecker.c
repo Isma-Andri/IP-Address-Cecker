@@ -4,8 +4,8 @@
 
 #define MAX_LINE_LENGTH 256
 
-void get_query(char *query_string, int *ip1, int *ip2, int *ip3, int *ip4) {
-    sscanf(query_string, "ip=%d.%d.%d.%d", ip1, ip2, ip3, ip4);
+void get_query(char *query_string, int *ip1, int *ip2, int *ip3, int *ip4, int *ipERR) {
+    sscanf(query_string, "ip=%d.%d.%d.%d.%d", ip1, ip2, ip3, ip4, ipERR);
 }
 
 void html_html_header() {
@@ -45,24 +45,28 @@ char get_class(int ip1) {
 }
 
 // Verifier les 4 octets de l'addresse IP
-int verify(int ip1, int ip2, int ip3, int ip4) {
-    if ((ip1 >= 0 && ip1 <= 255) &&
+int verify(int ip1, int ip2, int ip3, int ip4, int ipERR) {
+	int err_exist = sizeof(ipERR);
+	if (err_exist == 4){
+		return 1;
+	}
+	else if ((ip1 >= 0 && ip1 <= 255) &&
         (ip2 >= 0 && ip2 <= 255) &&
         (ip3 >= 0 && ip3 <= 255) &&
         (ip4 >= 0 && ip4 <= 255)) {
         return 0; // L'adresse IP est valide
     } else {
-        return 1; // L'adresse IP invalida
+        return 1; // L'adresse IP est invalide
     }
 }
 
 // Fonction pour vérifier l'adresse IP fournie par la query string
 void check_ip() {
     char *query_string = getenv("QUERY_STRING");
-    int ip1, ip2, ip3, ip4;
+    int ip1, ip2, ip3, ip4, ipERR;
 
     // Extraction des valeurs IP depuis la query string
-    get_query(query_string, &ip1, &ip2, &ip3, &ip4);
+    get_query(query_string, &ip1, &ip2, &ip3, &ip4, &ipERR);
     char class = get_class(ip1);
 
     // Génération du HTML
@@ -71,7 +75,7 @@ void check_ip() {
     html_title();
 
     // Vérification de l'adresse IP
-    int result = verify(ip1, ip2, ip3, ip4);
+    int result = verify(ip1, ip2, ip3, ip4, ipERR);
     if (result == 0) {
         printf("<P>Class: %c</P>", class);
         printf("<P>IP: %d.%d.%d.%d</P>", ip1, ip2, ip3, ip4);
@@ -79,7 +83,7 @@ void check_ip() {
         printf("<P>Invalid IP address</P>");
     }
 
-    // Manidy kkk
+    // Fermeture du HTML
     html_html_footer();
 }
 
